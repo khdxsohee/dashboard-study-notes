@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Study Notes Dashboard</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="container">
+    <h1>📚 Study Notes Dashboard</h1>
+    <input type="text" id="searchBar" placeholder="Search notes...">
+
+    <!-- English Section -->
+    <div class="subject">
+      <h2>English</h2>
+      <div class="notes">
+        <div class="note-card" data-title="Grammar Rules">
+          <p>Grammar Rules</p>
+          <a href="notes/english/grammar.pdf" target="_blank" class="view">👁️ View</a>
+          <a href="notes/english/grammar.pdf" download class="download">⬇️ Download</a>
+        </div>
+        <div class="note-card" data-title="Essay Writing">
+          <p>Essay Writing</p>
+          <a href="notes/english/essay.pdf" target="_blank" class="view">👁️ View</a>
+          <a href="notes/english/essay.pdf" download class="download">⬇️ Download</a>
+        </div>
+        <div class="note-card" data-title="Essay Writing">
+          <p>Story Writing</p>
+          <a href="notes/english/essay.pdf" target="_blank" class="view">👁️ View</a>
+          <a href="notes/english/essay.pdf" download class="download">⬇️ Download</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Biology Section -->
+    <div class="subject">
+      <h2>Biology</h2>
+      <div class="notes">
+        <div class="note-card" data-title="Cell Structure">
+          <p>Cell Structure</p>
+          <a href="notes/biology/cell.pdf" target="_blank" class="view">👁️ View</a>
+          <a href="notes/biology/cell.pdf" download class="download">⬇️ Download</a>
+        </div>
+        <div class="note-card" data-title="Human Body Systems">
+          <p>Human Body</p>
+          <a href="notes/biology/body.pdf" target="_blank" class="view">👁️ View</a>
+          <a href="notes/biology/body.pdf" download class="download">⬇️ Download</a>
+        </div>
+        <div class="note-card" data-title="Human Body Systems">
+          <p>Animal Body</p>
+          <a href="notes/biology/body.pdf" target="_blank" class="view">👁️ View</a>
+          <a href="notes/biology/body.pdf" download class="download">⬇️ Download</a>
+        </div>
+         <div class="note-card" data-title="Human Body Systems">
+          <p>Bird Body</p>
+          <a href="notes/biology/body.pdf" target="_blank" class="view">👁️ View</a>
+          <a href="notes/biology/body.pdf" download class="download">⬇️ Download</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Chemistry Section -->
+    <div class="subject">
+      <h2>Chemistry</h2>
+      <div class="notes">
+        <div class="note-card" data-title="Atoms & Elements">
+          <p>Atoms & Elements</p>
+          <a href="notes/chemistry/atoms.pdf" target="_blank" class="view">👁️ View</a>
+          <a href="notes/chemistry/atoms.pdf" download class="download">⬇️ Download</a>
+        </div>
+        <div class="note-card" data-title="Chemical Reactions">
+          <p>Chemical Reactions</p>
+          <a href="notes/chemistry/reactions.pdf" target="_blank" class="view">👁️ View</a>
+          <a href="notes/chemistry/reactions.pdf" download class="download">⬇️ Download</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Physics Section -->
+    <div class="subject">
+      <h2>Physics</h2>
+      <div class="notes">
+        <div class="note-card" data-title="Motion & Force">
+          <p>Motion & Force</p>
+          <a href="notes/physics/motion.pdf" target="_blank" class="view">👁️ View</a>
+          <a href="notes/physics/motion.pdf" download class="download">⬇️ Download</a>
+        </div>
+        <div class="note-card" data-title="Light and Optics">
+          <p>Light & Optics</p>
+          <a href="notes/physics/light.pdf" target="_blank" class="view">👁️ View</a>
+          <a href="notes/physics/light.pdf" download class="download">⬇️ Download</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<script>
+  const searchBar = document.getElementById("searchBar");
+  searchBar.addEventListener("keyup", function () {
+    const query = this.value.toLowerCase();
+    const subjects = document.querySelectorAll(".subject");
+
+    subjects.forEach((subject) => {
+      let anyVisible = false;
+      const cards = subject.querySelectorAll(".note-card");
+
+      cards.forEach((card) => {
+        const title = card.getAttribute("data-title").toLowerCase();
+        const match = title.includes(query);
+        card.style.display = match ? "flex" : "none";
+        if (match) anyVisible = true;
+      });
+
+      subject.style.display = anyVisible ? "block" : "none";
+    });
+  });
+</script>
+
+</body>
+</html>
